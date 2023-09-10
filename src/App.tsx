@@ -11,7 +11,7 @@ function App() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ postContent: postContent })
+      body: JSON.stringify({ contentToGetFeedbackOn: postContent })
     }
     fetch('http://localhost:9000/api/getFeedback', requestOptions)
       .then(response => response.json())
