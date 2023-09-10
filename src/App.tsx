@@ -11,7 +11,7 @@ type Feedback = {
   "feedback": string
 }
 
-function App() {
+const App = () => {
   const [postContent, setPostContent] = React.useState<string>("No post content yet")
   const [fullFeedback, setFullFeedback] = React.useState<FullFeedback>(
     {})
