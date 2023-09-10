@@ -62,6 +62,7 @@ const App = () => {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {Object.keys(fullFeedback).map((reviewerName) => (
             <Reviewer name={reviewerName}
+              key={reviewerName}
               score={fullFeedback[reviewerName].score}
               feedback={fullFeedback[reviewerName].feedback} />
           ))}
