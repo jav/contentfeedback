@@ -44,8 +44,6 @@ const App = () => {
           cols={50} rows={50}
           value={postContent}
           onChange={(e) => setPostContent(e.currentTarget.value)} ></textarea>
-        <textarea id="feedback" cols={60} rows={20} value={JSON.stringify(fullFeedback)}></textarea>
-
       </div>
     </div>
   );
