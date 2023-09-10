@@ -27,8 +27,8 @@ function App() {
   }
 
   return (
-    <div className="App" style={{ flex: 2 }} onClick={() => getFeedback(postContent)}>
-      <button name="getFeedback">Get Feedback</button>
+    <div className="App" style={{ flex: 2 }}>
+      <button name="getFeedback" onClick={() => getFeedback(postContent)}>Get Feedback</button>
       <div style={{ flex: 1 }}>
         <textarea id="postContent"
           cols={50} rows={50}
