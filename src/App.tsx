@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import Reviewer from './components/Reviewer';
+import Editor from './components/Editor';
 
 type FullFeedback = {
   [key: string]: Feedback
@@ -51,20 +52,19 @@ const App = () => {
 
   return (
     <div className="App">
-        <div className="ContentPanel">
-          <textarea id="postContent"
-            cols={50} rows={50}
-            value={postContent}
-            onChange={(e) => setPostContent(e.currentTarget.value)} ></textarea>
-        </div>
-        <div className="ReviewersPanel">
-          <button name="getFeedback" onClick={() => getFeedback(postContent)}>Get Feedback</button>
-          {Object.keys(fullFeedback).map((reviewerName) => (
-            <Reviewer name={reviewerName}
-              key={reviewerName}
-              score={fullFeedback[reviewerName].score}
-              feedback={fullFeedback[reviewerName].feedback} />
-          ))}
+      <div className="ContentPanel">
+        <Editor
+          content={postContent}
+          onChange={(content) => setPostContent(content)} />
+      </div>
+      <div className="ReviewersPanel">
+        <button name="getFeedback" onClick={() => getFeedback(postContent)}>Get Feedback</button>
+        {Object.keys(fullFeedback).map((reviewerName) => (
+          <Reviewer name={reviewerName}
+            key={reviewerName}
+            score={fullFeedback[reviewerName].score}
+            feedback={fullFeedback[reviewerName].feedback} />
+        ))}
       </div>
     </div>
   )
