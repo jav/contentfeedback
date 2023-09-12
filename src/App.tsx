@@ -30,7 +30,6 @@ const App = () => {
   const [postContent, setPostContent] = React.useState<string>("No post content yet")
   const [fullFeedback, setFullFeedback] = React.useState<FullFeedback>(() => initReviewers())
 
-
   const getFeedback = (postContent: string) => {
     const requestOptions = {
       method: 'POST',
@@ -59,11 +58,15 @@ const App = () => {
       </div>
       <div className="ReviewersPanel">
         <button name="getFeedback" onClick={() => getFeedback(postContent)}>Get Feedback</button>
+
         {Object.keys(fullFeedback).map((reviewerName) => (
-          <Reviewer name={reviewerName}
-            key={reviewerName}
-            score={fullFeedback[reviewerName].score}
-            feedback={fullFeedback[reviewerName].feedback} />
+          <div>
+            <Reviewer name={reviewerName}
+              enabled={false}
+              key={reviewerName}
+              score={fullFeedback[reviewerName].score}
+              feedback={fullFeedback[reviewerName].feedback} />
+          </div>
         ))}
       </div>
     </div>
