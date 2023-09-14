@@ -12,11 +12,6 @@
   display: flex;
 }
 
-.Reviewer .ReviewerBox {
-  display: flex;
-  flex-direction: row;
-}
-
 .Reviewer .ReviewerAvatarBox {
   display: flex;
   flex-direction: column;

@@ -13,17 +13,15 @@ const Reviewer: FunctionComponent<ReviewerProps> = ({ name, score, feedback, imp
 
     return (
         <div className="Reviewer">
-            <div className="ReviewerBox">
-                <div className="ReviewerAvatarBox">
-                    {enabled ? <ReviewerAvatar name={name} /> : null}
-                    <div className="SignsBox">
-                        <span className={`ScoreSign ${enabled ? '' : 'NoDisplay'}`}>
-                            Score: {score ?? "N/A"}
-                        </span>
-                        <span className={`NameSign`}>
-                            {name}
-                        </span>
-                    </div>
+            <div className="ReviewerAvatarBox">
+                {enabled ? <ReviewerAvatar name={name} /> : null}
+                <div className="SignsBox">
+                    <span className={`ScoreSign ${enabled ? '' : 'NoDisplay'}`}>
+                        Score: {score ?? "N/A"}
+                    </span>
+                    <span className={`NameSign`}>
+                        {name}
+                    </span>
                 </div>
             </div>
             <div className={`SpeechBubble ${enabled ? '' : 'NoDisplay'}`}>
