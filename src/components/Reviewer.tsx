@@ -3,12 +3,13 @@ import ReviewerAvatar from './ReviewerAvatar'
 
 type ReviewerProps = {
     name: string,
-    score: number,
+    score: number | null,
     feedback: string,
+    improvementSuggestion: string,
     enabled: boolean
 }
 
-const Reviewer: FunctionComponent<ReviewerProps> = ({ name, score, feedback, enabled }) => {
+const Reviewer: FunctionComponent<ReviewerProps> = ({ name, score, feedback, improvementSuggestion, enabled }) => {
 
     return (
         <div className="Reviewer">
@@ -17,7 +18,7 @@ const Reviewer: FunctionComponent<ReviewerProps> = ({ name, score, feedback, ena
                     {enabled ? <ReviewerAvatar name={name} /> : null}
                     <div className="SignsBox">
                         <span className={`ScoreSign ${enabled ? '' : 'NoDisplay'}`}>
-                            Score: {score}
+                            Score: {score ?? "N/A"}
                         </span>
                         <span className={`NameSign`}>
                             {name}
@@ -27,6 +28,8 @@ const Reviewer: FunctionComponent<ReviewerProps> = ({ name, score, feedback, ena
             </div>
             <div className={`SpeechBubble ${enabled ? '' : 'NoDisplay'}`}>
                 {feedback}
+                <hr />
+                {improvementSuggestion}
             </div>
         </div>
     )

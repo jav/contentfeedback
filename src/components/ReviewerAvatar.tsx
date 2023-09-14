@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 
 type ReviewerAvatarProps = {
-    name: string,
+    name: string
 }
 
 const ReviewerAvatar: FunctionComponent<ReviewerAvatarProps> = ({ name }) => {
