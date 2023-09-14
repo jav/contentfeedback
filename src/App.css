@@ -4,9 +4,13 @@
   align-items: stretch;
 }
 
-.ContentPanel {}
+.ContentPanel {
+  width: 50%
+}
 
-.ReviewersPanel {}
+.ReviewersPanel {
+  width: 50%
+}
 
 .Reviewer {
   display: flex;
