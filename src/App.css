@@ -16,6 +16,11 @@
   display: flex;
 }
 
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
 .Reviewer .ReviewerAvatarBox {
   display: flex;
   flex-direction: column;
@@ -58,4 +63,25 @@
 
 .NoDisplay {
   display: none;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 0.8em;
+  height: 0.8em;
+  border: 0.1em solid #f3f3f3;
+  /* Light grey */
+  border-top: 0.1em solid #383636;
+  /* Blue */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
 }

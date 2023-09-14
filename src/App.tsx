@@ -83,6 +83,8 @@ const App = () => {
   const [postContent, setPostContent] = React.useState<string>("")
   const [muted, setMuted] = React.useState<{ [slug: string]: boolean }>({})
 
+  const [loadingFeedback, setLoadingFeedback] = React.useState<boolean>(false)
+
   useEffect(() => {
     const initReviewers = async () => {
       const reviewers: Reviewer[] = await fetchAvailableReviewers()
@@ -119,17 +121,26 @@ const App = () => {
           onChange={(content) => setPostContent(content)} />
       </div>
       <div className="ReviewersPanel">
-        <button name="getFeedback"
-          onClick={() =>
+        <div className="flexRow">
+          <button name="getFeedback"
+          onClick={() => {
+            setLoadingFeedback(true)
             getAllReviewersFeedback(reviewersSlugs, postContent).then(
               (allReviewersFeedback) => {
                 setScores(allReviewersFeedback.scores)
                 setFeedbacks(allReviewersFeedback.feedback)
                 setImprovementSuggestions(allReviewersFeedback.improvementSuggestions)
-              }
-            )
 
-          }>Get Feedback</button>
+              }
+            ).then(() => setLoadingFeedback(false))
+          }
+
+          }>Get Feedback</button> &nbsp;
+          {loadingFeedback ? (
+            <div className="loading-spinner" />
+          ) : null
+          }
+        </div>
         <ReviewersRoster
           reviewersSlugs={reviewersSlugs}
           names={names}
