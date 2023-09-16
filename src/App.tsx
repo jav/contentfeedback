@@ -5,6 +5,8 @@ import Reviewer from './components/Reviewer';
 import Editor from './components/Editor';
 import ReviewersRoster from './components/ReviewersRoster';
 
+const BASE_URL = process.env.API_BASE_URL
+
 type FullFeedback = {
   [key: string]: Feedback
 }
