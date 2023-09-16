@@ -5,6 +5,8 @@ import Reviewer from './components/Reviewer';
 import Editor from './components/Editor';
 import ReviewersRoster from './components/ReviewersRoster';
 
+import defaultPostContent from './resources/defaultPostContent'
+
 //const API_BASE_URL = process.env.API_BASE_URL
 const API_BASE_URL = "https://europe-north1-writing-coach.cloudfunctions.net/api"
 
@@ -75,7 +77,6 @@ const getReviewerFeedback = async (reviewerSlug: string, postContent: string): P
   }
 }
 
-
 const App = () => {
 
   const [reviewersSlugs, setReviewersSlugs] = React.useState<string[]>([])
@@ -83,7 +84,7 @@ const App = () => {
   const [scores, setScores] = React.useState<{ [slug: string]: number | null }>({})
   const [feedbacks, setFeedbacks] = React.useState<{ [slug: string]: string | null }>({})
   const [improvementSuggestions, setImprovementSuggestions] = React.useState<{ [slug: string]: string | null }>({})
-  const [postContent, setPostContent] = React.useState<string>("")
+  const [postContent, setPostContent] = React.useState<string>(defaultPostContent)
   const [muted, setMuted] = React.useState<{ [slug: string]: boolean }>({})
 
   const [loadingFeedback, setLoadingFeedback] = React.useState<boolean>(false)
