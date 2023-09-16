@@ -5,7 +5,7 @@ import Reviewer from './components/Reviewer';
 import Editor from './components/Editor';
 import ReviewersRoster from './components/ReviewersRoster';
 
-const BASE_URL = process.env.API_BASE_URL
+const API_BASE_URL = process.env.API_BASE_URL
 
 type FullFeedback = {
   [key: string]: Feedback
@@ -27,7 +27,7 @@ type Reviewer = {
 }
 
 const fetchAvailableReviewers = async () => {
-  return await fetch('api/reviewers').then(response => response.json())
+  return await fetch(`${API_BASE_URL}api/reviewers`).then(response => response.json())
 }
 
 type AllReviewersFeedback = {
@@ -63,7 +63,7 @@ const getReviewerFeedback = async (reviewerSlug: string, postContent: string): P
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ contentToGetFeedbackOn: postContent })
     }
-    const reviewer = await fetch(`api/reviewers/${reviewerSlug}/getFeedback`, requestOptions).then(response => response.json())
+    const reviewer = await fetch(`${API_BASE_URL}/reviewers/${reviewerSlug}/getFeedback`, requestOptions).then(response => response.json())
     reviewer.slug = reviewerSlug
 
     return reviewer
