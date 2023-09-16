@@ -28,7 +28,7 @@ type Reviewer = {
 }
 
 const fetchAvailableReviewers = async () => {
-  return await fetch(`${API_BASE_URL}api/reviewers`).then(response => response.json())
+  return await fetch(`${API_BASE_URL}/reviewers`).then(response => response.json())
 }
 
 type AllReviewersFeedback = {
