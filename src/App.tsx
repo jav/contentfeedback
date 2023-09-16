@@ -5,7 +5,8 @@ import Reviewer from './components/Reviewer';
 import Editor from './components/Editor';
 import ReviewersRoster from './components/ReviewersRoster';
 
-const API_BASE_URL = process.env.API_BASE_URL
+//const API_BASE_URL = process.env.API_BASE_URL
+const API_BASE_URL = "https://europe-north1-writing-coach.cloudfunctions.net/api/"
 
 type FullFeedback = {
   [key: string]: Feedback
