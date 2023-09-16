@@ -8,7 +8,7 @@ const ReviewerAvatar: FunctionComponent<ReviewerAvatarProps> = ({ name }) => {
     const attribution = "Image by pikisuperstar on Freepik"
 
     const avatarNo = name.split("").reduce((acc, val) => acc + val.charCodeAt(0), 0) % 8 + 1
-    const avatarSrc = `crop${avatarNo}.png`
+    const avatarSrc = `images/crop${avatarNo}.svg`
 
     return (
         <img

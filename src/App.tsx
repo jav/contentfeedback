@@ -25,7 +25,7 @@ type Reviewer = {
 }
 
 const fetchAvailableReviewers = async () => {
-  return await fetch('http://localhost:9000/api/reviewers').then(response => response.json())
+  return await fetch('api/reviewers').then(response => response.json())
 }
 
 type AllReviewersFeedback = {
@@ -61,7 +61,7 @@ const getReviewerFeedback = async (reviewerSlug: string, postContent: string): P
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ contentToGetFeedbackOn: postContent })
     }
-    const reviewer = await fetch(`http://localhost:9000/api/reviewers/${reviewerSlug}/getFeedback`, requestOptions).then(response => response.json())
+    const reviewer = await fetch(`api/reviewers/${reviewerSlug}/getFeedback`, requestOptions).then(response => response.json())
     reviewer.slug = reviewerSlug
 
     return reviewer
