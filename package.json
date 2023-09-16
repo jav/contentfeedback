@@ -1,6 +1,7 @@
 {
   "name": "storytellingfeedback",
   "version": "0.1.0",
+  "homepage": "https://jav.github.io/contentfeedbackfrontend",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -11,6 +12,7 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@uiw/react-markdown-editor": "^5.11.3",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -22,7 +24,9 @@
     "build": "react-scripts build && npm run copytobackend",
     "copytobackend": "cp -r build/* ../backend/public/",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
