@@ -134,12 +134,11 @@ const App = () => {
                 setScores(allReviewersFeedback.scores)
                 setFeedbacks(allReviewersFeedback.feedback)
                 setImprovementSuggestions(allReviewersFeedback.improvementSuggestions)
-
               }
             ).then(() => setLoadingFeedback(false))
           }
 
-          }>Get Feedback</button> &nbsp;
+          }>Get everyone's feedback</button> &nbsp;
           {loadingFeedback ? (
             <div className="loading-spinner" />
           ) : null
